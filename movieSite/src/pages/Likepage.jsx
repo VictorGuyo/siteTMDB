@@ -1,9 +1,10 @@
 import React from "react";
+import Header from "../components/Header";
 
 const Likepage = () => {
   return (
-    <div>
-      <h1>LIKEPAGEEEE</h1>
+    <div className="user-list-page">
+      <Header />
     </div>
   );
 };
