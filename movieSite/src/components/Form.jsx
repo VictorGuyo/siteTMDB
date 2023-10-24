@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Card from "./Card";
 
+//------------------GET DATA FROM API------------------
 const Form = () => {
-const [moviesData, setMoviesData] = useState([])
+  const [moviesData, setMoviesData] = useState([]);
+
   useEffect(() => {
     axios
       .get(
@@ -10,7 +13,7 @@ const [moviesData, setMoviesData] = useState([])
       )
       .then((res) => setMoviesData(res.data.results));
   }, []);
-
+//-----------------INPUT------------------------
   return (
     <div className="form-component">
       <div className="form-container">
@@ -32,8 +35,8 @@ const [moviesData, setMoviesData] = useState([])
         </div>
       </div>
       <div className="result">
-        {moviesData.slice(0,12).map((movie) => (
-<h3>{movie.title}</h3>
+        {moviesData.slice(0, 12).map((movie) => (
+          <Card movie={movie} key={movie.id} />
         ))}
       </div>
     </div>
